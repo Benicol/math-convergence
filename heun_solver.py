@@ -33,7 +33,7 @@ def solve_heun(
     u_values: np.ndarray = np.zeros(len(t_values))
     u_values[0] = u0
 
-    
+    # On avance la solution en utilisant deux estimations de la pente
     for i in range(len(t_values) - 1):
         t_n = float(t_values[i])
         u_n = float(u_values[i])
