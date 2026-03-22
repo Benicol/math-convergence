@@ -13,11 +13,27 @@ def solve_heun(
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Résout du/dt = f(t, u) par la méthode de Heun (Runge-Kutta explicite d'ordre 2).
+
+    Args:
+        f: Fonction donnant la pente instantanée f(t, u).
+        u0: Condition initiale u(t0).
+        t_span: Intervalle temporel (t0, tf) couvert par l'intégration.
+        h: Pas de temps constant strictement positif.
+
+    Returns:
+        Tuple des abscisses et ordonnées numériques (t_values, u_values).
     """
+
+    if h <= 0:
+        raise ValueError(
+            "Le pas de temps h doit être strictement positif pour la méthode de Heun."
+        )
+    
     t_values: np.ndarray = np.arange(t_span[0], t_span[1] + h, h)
     u_values: np.ndarray = np.zeros(len(t_values))
     u_values[0] = u0
 
+    
     for i in range(len(t_values) - 1):
         t_n = float(t_values[i])
         u_n = float(u_values[i])
