@@ -67,7 +67,7 @@ def plot_loglog_convergence(
     t_span: Tuple[float, float],
 ) -> None:
     """Trace les erreurs globales en fonction du pas h."""
-    h_values: list[float] = [0.2, 0.1, 0.05, 0.02, 0.01, 0.005, 0.001]
+    h_values: list[float] = [0.05, 0.02, 0.01, 0.005, 0.002, 0.001]
     errors_euler: list[float] = []
     errors_heun: list[float] = []
 
